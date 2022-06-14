@@ -1,0 +1,241 @@
+body {
+    display: block;
+    width: 1000px;
+    margin: 0 auto;
+    background-color: #a1b5c4;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    width: 600px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 70px 15px;
+    background-color: #ffffff;
+    box-shadow: -1px 5px 12px 0 rgba(89, 90, 90, 0.3);
+    z-index: 2;
+}
+
+.todo-list {
+    list-style: none;
+    background-color: pink;
+    padding: 30px;
+}
+
+.todo-list-item {
+    margin-bottom: 12px;
+}
+
+.todo-list-item:hover {
+    background-color: white;
+}
+
+.todo-list-item label {
+    display: block;
+    padding: 12px 18px;
+
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    user-select: none;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-list-item span {
+    display: flex;
+    align-items: center;
+}
+
+.todo-list-input+span::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 16px;
+    height: 16px;
+
+    margin-right: 16px;
+
+    background-color: #ffffff;
+    border: 2px solid pink;
+    border-radius: 4px;
+}
+
+.todo-list-input:checked+span::before {
+    background-color: pink;
+    background-image: url("check-white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.todo-list-input:not(:checked):hover+span::before,
+.todo-list-input:not(:checked):focus+span::before {
+    background-color: rgba(105, 178, 83, 0.2);
+}
+
+.item-done {
+    text-decoration: line-through;
+}
+
+
+.todo-list-input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    border: 0;
+
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+
+    text-decoration: line-through;
+}
+
+.hidden {
+    display: none;
+}
+
+.empty-tasks,
+.done-tasks {
+    color: #fa1de8;
+}
+
+.empty-tasks::before,
+.done-tasks::before {
+    content: "";
+
+    width: 14px;
+    height: 13px;
+
+    margin-right: 13px;
+
+    background-image: url("check-green.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.add-form {
+    display: flex;
+}
+
+.add-form-input {
+    flex-grow: 1;
+
+    box-sizing: border-box;
+    height: 46px;
+    margin-right: 16px;
+    padding: 12px;
+
+    font: inherit;
+
+    border: 1px solid #a1b5c4;
+    border-radius: 4px;
+}
+
+.add-form-input:focus {
+    border: 1px solid #f36ad1;
+    outline: none;
+}
+
+.add-form-input:hover {
+    box-shadow: 0 0 6px rgba(255, 108, 223, 0.678);
+}
+
+.add-form-input::placeholder {
+    color: #a1b5c4;
+}
+
+.add-form-button {
+    flex-shrink: 0;
+    padding: 12px;
+
+    font: inherit;
+    color: #ffffff;
+
+    background-color: #f375b4;
+    border: none;
+    border-radius: 4px;
+
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.add-form-button:hover,
+.add-form-button:focus {
+    background-color: pink;
+    outline: none;
+}
+
+.add-form-button:active {
+    background-color: rgb(252, 161, 176);
+}
+
+.popup,
+.popup-number {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popup::after,
+.popup-number::after{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.popup--open {
+    display: block;
+}
+
+.window,
+.window-number {
+    position: relative;
+    width: 600px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 70px 15px;
+    background-color: #ffffff;
+    box-shadow: -1px 5px 12px 0 rgba(89, 90, 90, 0.3);
+    z-index: 2;
+
+}
+
+.popup__button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bolder;
+    background-color: transparent;
+    color: rgb(245, 60, 91)
+}
+
+.popup__button:hover,
+.popup__button:focus {
+    color: pink;
+}
